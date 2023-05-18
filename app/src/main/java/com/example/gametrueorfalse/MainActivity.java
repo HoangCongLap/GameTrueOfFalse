@@ -57,7 +57,12 @@ public class MainActivity extends AppCompatActivity {
             public void onFinish() {
                 mTimerRunning = false;
                 btnStart.setText("Start");
-
+                txtNumber4.setVisibility(View.VISIBLE);
+                txtNumber4.setTextColor(Color.RED);
+                txtNumber4.setText("LOSE");
+                btnStart.setVisibility(View.VISIBLE);
+                setEnabledTrueOrFlase();
+                countNumberOfTurns=0;
             }
 
             @Override
@@ -107,10 +112,11 @@ public class MainActivity extends AppCompatActivity {
                     restartStart();
                     if (countNumberOfTurns == 10) {
                         setWin();
-                    }
 
+                    }
                 } else {
                     setLose();
+
                 }
             }
         });
@@ -129,6 +135,8 @@ public class MainActivity extends AppCompatActivity {
                     }
                 } else {
                     setLose();
+
+
                 }
             }
         });
@@ -142,6 +150,7 @@ public class MainActivity extends AppCompatActivity {
         mCountDownTimer.cancel();
         btnStart.setVisibility(View.VISIBLE);
         countNumberOfTurns = 0;
+
     }
 
     private void setLose() {
@@ -156,18 +165,24 @@ public class MainActivity extends AppCompatActivity {
     private void restartStart() {
         startTimer();
         showSnackBar();
+        btnAnswerTrue.setEnabled(true);
+        btnAnswerFalse.setEnabled(true);
         Random random = new Random();
         number1 = random.nextInt(100);
         txtNumber1.setText(number1 + "");
 
         number2 = random.nextInt(100);
         txtNumber2.setText(number2 + "");
-
-        number3 = random.nextInt(100);
-        txtNumber3.setText(number3 + "");
         sum = number1 + number2;
+        if (sum % 2 == 1) {
+            number3 = number1 + number2;
+            txtNumber3.setText(number3 + "");
+        } else {
+            number3 = random.nextInt(100);
+            txtNumber3.setText(number3 + "");
+        }
         countNumberOfTurns = countNumberOfTurns + 1;
-        System.out.println("hjkhjkkj" + countNumberOfTurns);
+        System.out.println(countNumberOfTurns);
     }
 
     private void initViews() {
@@ -228,5 +243,11 @@ public class MainActivity extends AppCompatActivity {
         String timeLeftFormatted = String.format(Locale.getDefault(), "%02d", seconds);
         txtCountdown.setText(timeLeftFormatted);
 
+    }
+
+//    không cho kích vào nút TRUE hoặc FALSE
+    private void setEnabledTrueOrFlase() {
+        btnAnswerTrue.setEnabled(false);
+        btnAnswerFalse.setEnabled(false);
     }
 }
