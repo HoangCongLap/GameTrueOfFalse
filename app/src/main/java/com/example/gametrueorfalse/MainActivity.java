@@ -32,9 +32,10 @@ public class MainActivity extends AppCompatActivity {
 
     Button btnAnswerFalse;
     int sum = 0;
+    int number3 = 0;
     int number1 = 0;
     int number2 = 0;
-    int number3 = 0;
+
     private int countNumberOfTurns = 0;
     private static final long START_TIME_IN_MILLIS = 3000;
     private TextView txtCountdown;
