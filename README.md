@@ -4,7 +4,7 @@
 - Thời gian đếm ngược của mỗi ván là 3 giây, khi hết thời gian bạn sẽ thua và hiện chữ "**Lose**".
 # 2. Mô tả màn hình
 ### 2.1 Màn hình chính  
-![example](homeScreen.png)
+![example](img/homeScreen.png)
 ### 2.2 Màn hình khi thua
 ![example](lose.png)
 ### 2.3 Màn hình khi thắng 
